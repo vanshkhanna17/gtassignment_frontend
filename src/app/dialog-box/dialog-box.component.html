@@ -1,0 +1,58 @@
+<div mat-dialog-content>
+    <div class="row">
+        <div class="col-11"></div>
+        <div class="col-1 close btn" (click)="close()"><b>X</b></div>
+    </div>
+
+    <div class="container-fluid">    
+        <div class="row rows">
+            <div class="col-12"><b>Fund Name: </b>{{data.fundDetails.meta.scheme_name}}</div>
+        </div>
+        <div class="row rows">
+            <div class="col-6">
+               <b>Scheme Category: </b>{{data.fundDetails.meta.scheme_category}}
+            </div>
+            <div class="col-6">
+               <b>Scheme Type: </b>{{data.fundDetails.meta.scheme_type}}
+            </div>
+        </div>
+        <div class="row rows">
+           <div class="col-12">
+               <b>Fund House: </b>{{data.fundDetails.meta.fund_house}}
+            </div>
+        </div>
+        <div class="row rows">
+            <div class="col-6">
+                <b>Nav: </b>{{data.fundDetails.data[0].nav}}
+            </div>
+            <div class="col-6">
+                <b>Nav Date: </b>{{data.fundDetails.data[0].date}}
+            </div>
+        </div>
+        <div class="row rows">
+            <div class="col-12">
+                <b>Available Units: </b>{{data.units}}
+            </div>
+        </div>
+        <div class="row rows">
+            <div class="col-6">
+                <button class="btn btn-success button">Buy</button>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-warning button">Sell</button>
+            </div>
+        </div>
+    </div>
+
+
+
+  <!-- <p>What's your favorite animal?</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Favorite Animal</mat-label>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+</div>

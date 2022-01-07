@@ -1,0 +1,14 @@
+.close{
+    cursor: pointer;
+}
+.close:hover{
+    background-color: #346ccb;
+    color: #fbfcfd;
+}
+.rows{
+    margin-top: 3%;
+    width: 100%;
+}
+.button{
+    width: 100%;
+}

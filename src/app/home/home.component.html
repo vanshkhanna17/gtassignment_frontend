@@ -1,0 +1,57 @@
+<div class="row title">
+    <h2>MF Store</h2>
+</div>
+<hr class="line">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form class="example-form">
+                <mat-form-field class="example-form">
+                    <input type="text" placeholder="Search Mutual Funds" aria-label="Search" matInput
+                    [formControl]="myControl" [matAutocomplete]="auto">
+                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="optionSelected($event)">
+                        <div *ngIf='!apiFetchResultEmpty && !blankSearchText'>
+                            <mat-option *ngFor="let entry of entries" [value]="entry">
+                                {{entry.schemeName}}
+                            </mat-option>
+                        </div>
+                        <div *ngIf='apiFetchResultEmpty && !blankSearchText'>
+                            <mat-option>
+                                No Mutual Fund names include the entered keyword.
+                            </mat-option>
+                        </div>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </form>
+        </div>
+    </div>
+    <div class="row notification" *ngIf="fundAlreadyExists">
+        <p>Fund already selected</p>
+    </div>
+    <div class="row">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Mutual Fund Name</th>
+                    <th>Number of Units</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let selectedFund of selectedFunds, let i = index'>
+                    <td><button mat-button class="btn button" (click)="openDialog(selectedFund)">{{selectedFund.schemeName}}</button></td>
+                    <td>
+                        <button class="btn btn-primary" (click)="addUnits(i)">+</button> &nbsp;
+                        {{selectedFund.noOfUnits}} &nbsp; 
+                        <button class="btn btn-primary" (click)="reduceUnits(i)">-</button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td class="bold">Total Units: {{totalUnits}}</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
